@@ -13,7 +13,7 @@
 	}
 	
 	function EntityToJson(){
-		$.getJSON("TestController/get", { name: "John", id: "123" }, function(json){
+		$.getJSON("TestController/get", function(json){
 			var str="<tr><td>name</td><td>id</td></tr><br/>"
 			for(var i in json ){
 				str+="<tr><td>"+i.name+"</td>"+"<td>"i.id+"</td><br/>"
@@ -26,6 +26,8 @@
 <body>
 	<input type="button" onclick="entityToJson()">JsonToEntity</input>
 	<input type="button" onclick="EntityToJson()">EntityToJson</input>
-	<table id="table"></table>
+	<table id="table">
+	
+	</table>
 </body>
 </html>
