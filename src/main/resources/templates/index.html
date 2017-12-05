@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+<script th:inline="javascript">
+	function entityToJson(){
+		$.getJSON("TestController/get", { name: "John", id: "123" }, function(json){
+			console.info(success);
+			});
+	}
+	
+	function EntityToJson(){
+		$.getJSON("TestController/get", { name: "John", id: "123" }, function(json){
+			var str="<tr><td>name</td><td>id</td></tr><br/>"
+			for(var i in json ){
+				str+="<tr><td>"+i.name+"</td>"+"<td>"i.id+"</td><br/>"
+			}
+			$("table").add(str);
+			});
+	}
+</script>
+</head>
+<body>
+	<input type="button" onclick="entityToJson()">JsonToEntity</input>
+	<input type="button" onclick="EntityToJson()">EntityToJson</input>
+	<table id="table"></table>
+</body>
+</html>
